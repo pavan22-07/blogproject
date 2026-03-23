@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+<p>{{ post.content }}</p>
+
+<hr>
+
+<h3>Comments</h3>
+
+{% for comment in comments %}
+    <p>{{ comment.text }}</p>
+{% empty %}
+    <p>No comments yet</p>
+{% endfor %}
+
+<hr>
+
+<h3>Add Comment</h3>
+
+<form method="POST">
+    {% csrf_token %}
+    <textarea name="text"></textarea>
+    <button type="submit">Add Comment</button>
+</form>
+
+
+{% if post.image %}
+    <img src="{{ post.image.url }}" width="400">
+{% endif %}
+
+<p>{{ post.content }}</p>
+</body>
+</html>
