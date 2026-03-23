@@ -1,0 +1,13 @@
+body {
+    font-family: Arial;
+    background-image: url("/static/images/watercolor-flower-background-frame-free-vector.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+}
+
+div {
+    background:rgba(164, 47, 47, 0.85);
+    border-radius: 10px;
+}
