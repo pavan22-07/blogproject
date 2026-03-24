@@ -130,15 +130,13 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/loggedout/'
 LOGIN_URL = '/accounts/login/'
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 import cloudinary
 
 cloudinary.config(
-    cloud_name='your_cloud_name',
-    api_key='your_api_key',
-    api_secret='your_api_secret'
+    cloud_name='dbi1gvo66',
+    api_key='598669349134373',
+    api_secret='*************************'
 )
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
