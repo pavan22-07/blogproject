@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -80,9 +82,10 @@ WSGI_APPLICATION = 'blogproject.wsgi.application'
 import dj_database_url
 
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.config(
+        default='sqlite:///db.sqlite3'
+    )
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
@@ -129,3 +132,13 @@ LOGOUT_REDIRECT_URL = '/loggedout/'
 LOGIN_URL = '/accounts/login/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+import cloudinary
+
+cloudinary.config(
+    cloud_name='your_cloud_name',
+    api_key='your_api_key',
+    api_secret='your_api_secret'
+)
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
